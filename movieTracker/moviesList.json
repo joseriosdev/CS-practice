@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Titanic",
+    "description": "Jack could be saved",
+    "genre": "Drama",
+    "year": 1999
+  },
+  {
+    "name": "Happy Gilmore",
+    "description": "Golfist not that golfist really",
+    "genre": "Comedy",
+    "year": 2001
+  }
+]
