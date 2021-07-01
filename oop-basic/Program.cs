@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MovieTracker {
+namespace Oop_basic{
 	class Program	{
 		static void Main(string[] args)	{
 			Console.ForegroundColor = ConsoleColor.Blue;
@@ -14,9 +14,6 @@ namespace MovieTracker {
 			Console.Read();
 
 			jaimito.Saludo();
-
-			// var app = new MovieTrackerApp();
-			// app.Init();
 		}
 	}
 }

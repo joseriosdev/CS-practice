@@ -19,7 +19,7 @@ namespace c_Basics
 			System.Console.WriteLine(b);
 
 			char s = '2';
-			string str = "12";
+			var str = "12";
 			int num = Convert.ToInt32(s); // converts it to UTF-8 value (50)
 			int number = Int32.Parse(str);
 			const float PI = 3.14f;
@@ -28,6 +28,15 @@ namespace c_Basics
 			// Console.WriteLine("{0}, {1}", decimal.MinValue, decimal.MaxValue);
 			System.Console.WriteLine(number + PI);
 			
+
+			// Let's do a try catch
+			try {
+				var randomNum = "1230";
+				byte j = Convert.ToByte(randomNum);
+				System.Console.WriteLine(j);
+			} catch(Exception) {
+				System.Console.WriteLine("unable to convert number to byte");
+			}
 		}
 	}
 }
