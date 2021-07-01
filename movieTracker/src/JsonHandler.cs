@@ -1,5 +1,5 @@
 using System;
-using System.Text.Json;
+using Newtonsoft.Json;
 using System.IO;
 using System.Collections.Generic;
 
@@ -13,9 +13,8 @@ namespace MovieTracker {
 
     
 
-    public List<Movie> FetchMovies(string fileName) {
-      string jsonFile = File.ReadAllText(fileName);
-      return JsonSerializer.Deserialize<List<Movie>>(jsonFile);
+    public dynamic FetchMovies(string fileName) {
+      return JsonConvert.DeserializeObject(File.ReadAllText(fileName));
     }
   }
 }

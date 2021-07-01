@@ -53,6 +53,7 @@ _________________________
       Console.ResetColor();
 		}
 	
+    // 1st Menu option
     private void RegisterMovie() {
       Console.ForegroundColor = ConsoleColor.Blue;
 
@@ -87,15 +88,54 @@ _________________________
       Console.ResetColor();
     }
 
+    // 2nd Menu option
     private void PrintMovies() {
       var json = new JsonHandler();
-      var movies = json.FetchMovies("moviesList.json");
-      System.Console.WriteLine(movies);
-      // ConsoleTableBuilder.From(movies).ExportAndWriteLine();
+      var moviesJson = json.FetchMovies("moviesList.json");
+      var movies = new List<Movie>(){};
+
+      System.Console.WriteLine("============= MOVIES =============");
+
+      foreach(var movie in moviesJson) {
+        movies.Add(new Movie() {
+          Name = movie.name, Description = movie.description, Genre = movie.genre, Year = movie.year
+        });
+        System.Console.WriteLine($"* Name: {movie.name} --- Description: {movie.description} --- Genre: {movie.genre} --- Year: {movie.year}\n");
+      }
     }
+    
+    // 3rd Menu option
+    private void SearchMovieByGenre() {
+      Console.ForegroundColor = ConsoleColor.Green;
+
+      System.Console.WriteLine(" Write the genre please:");
+      var genreInput = Console.ReadLine();
+
+      var json = new JsonHandler();
+      var moviesList = json.FetchMovies("moviesList.json");
+      var genreMatched = new List<Movie>(){};
+
+      for(byte i = 0; i < moviesList.Length; i++) {
+        if(moviesList[i].genre == genreInput) {
+          genreMatched.Add(moviesList[i]);
+          if(i == moviesList.Length - 1 && genreMatched.Count == 0) {
+            
+          }
+        }
+      }
+
+      foreach(var movie in genreMatched) {
+
+      }
+
+      Console.ResetColor();
+    }
+    // 5th Menu option
     private void ExitApp() {
       Console.WriteLine("Exiting app...");
     }
+
+    // Default Menu option
     private void AskAgain() {
       Console.ForegroundColor = ConsoleColor.Red;
       System.Console.WriteLine("Please, enter a number between 1 and 5");
